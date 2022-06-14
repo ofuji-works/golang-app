@@ -65,4 +65,7 @@ func main() {
 		break
 	}
 
+	// defer 遅延実行（呼び出し元の関数がreturnされた時にLIFOで呼ばれる）
+	defer fmt.Println("go !!")
+	fmt.Println("Let's")
 }
