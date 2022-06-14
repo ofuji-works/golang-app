@@ -9,4 +9,11 @@ func main () {
 	// 変数宣言
 	number := 1
 	fmt.Println(number)
+
+	// if文
+	if (number != 1) {
+		fmt.Println(true)
+	} else {
+		fmt.Println(false)
+	}
 }
