@@ -53,4 +53,16 @@ func main() {
 		println(text)
 	}
 
+	// switch
+	switchvar := "switch"
+
+	switch switchvar {
+	case "switch":
+		fmt.Println(switchvar)
+		break
+	default:
+		fmt.Println("default")
+		break
+	}
+
 }
