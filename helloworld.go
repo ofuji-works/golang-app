@@ -7,6 +7,6 @@ func main () {
 	fmt.Println("Hello world!")
 
 	// 変数宣言
-	var number = 1
+	number := 1
 	fmt.Println(number)
 }
