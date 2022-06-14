@@ -47,4 +47,10 @@ func main() {
 	arr3 := [...]int{1, 2, 3}
 	fmt.Println(arr3)
 
+	// for
+	for num := 0; num < 10; num++ {
+		text := fmt.Sprintf("for No.[%d]", num)
+		println(text)
+	}
+
 }
