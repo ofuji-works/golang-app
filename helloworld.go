@@ -1,8 +1,10 @@
 package main
 
-import ("fmt");
+import (
+	"fmt"
+)
 
-func main () {
+func main() {
 	// 標準出力
 	fmt.Println("Hello world!")
 
@@ -11,7 +13,7 @@ func main () {
 	fmt.Println(number)
 
 	// if文
-	if (number != 1) {
+	if number != 1 {
 		fmt.Println(true)
 	} else {
 		fmt.Println(false)
@@ -32,4 +34,17 @@ func main () {
 
 	rest := 26 % 5
 	fmt.Println(rest)
+
+	// 配列
+	var arr1 [2]int
+	arr1[0] = 0
+	arr1[1] = 1
+	fmt.Println(arr1)
+
+	var arr2 [2]int = [2]int{1, 2}
+	fmt.Println(arr2)
+
+	arr3 := [...]int{1, 2, 3}
+	fmt.Println(arr3)
+
 }
