@@ -4,6 +4,12 @@ import (
 	"fmt"
 )
 
+// 構造体
+type Person struct {
+	age  int
+	name string
+}
+
 func main() {
 	// 標準出力
 	fmt.Println("Hello world!")
@@ -83,4 +89,37 @@ func main() {
 	// 値の参照 ポインタ変数に*をつけて出力すると値の参照ができる。
 	fmt.Println(*pointer2)
 
+	person1 := &Person{18, "tarp"}
+	person2 := &Person{name: "tarp", age: 18}
+	var person3 Person
+	person3.name = "tarp"
+	person3.age = 18
+	fmt.Println(person1.name, person1.age)
+	fmt.Println(person2)
+	fmt.Println(person3)
+
+	mikne := NewPerson(18, "tarp")
+	fmt.Println("new person", mikne)
+
+	// structのポインタを通してのアクセス
+	person := Person{18, "tarp"}
+	john := &person
+	fmt.Println("person", person)
+	fmt.Println("john", john)
+	john.age = 55
+	fmt.Println("person", person)
+	fmt.Println("john", john)
+
+	//構造体でのメソッドの定義
+	//https://qiita.com/k-penguin-sato/items/62dfe0f93f56e4bf9157
+}
+
+// Goにはコンストラクタが用意されていません。
+// しかし、コンストラクタのようなものは実装できます。その時の関数名として通例、 New + 構造体名 が適用されます。
+func NewPerson(age int, name string) *Person {
+	// newは指定した型のポインタ型を生成する関数です。
+	person := new(Person)
+	person.age = age
+	person.name = name
+	return person
 }
