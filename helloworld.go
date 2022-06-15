@@ -22,6 +22,8 @@ func main() {
 	// 四則演算
 	add := 1 + 2
 	fmt.Println(add)
+	add = 4 + 5
+	fmt.Println(add)
 
 	substract := 3 - 1
 	fmt.Println(substract)
@@ -68,4 +70,17 @@ func main() {
 	// defer 遅延実行（呼び出し元の関数がreturnされた時にLIFOで呼ばれる）
 	defer fmt.Println("go !!")
 	fmt.Println("Let's")
+
+	// ポインタの取得
+	pointer1 := 10
+	// *int → ポインタ型
+	// &<変数>でポインタを表す 参照
+	// ポインタ型変数 メモリのアドレスを値として格納。ポインター型変数にしたい変数の方に*をつける
+	var pointer2 *int = &pointer1
+	fmt.Println(pointer1)
+	// ポインタの出力
+	fmt.Println(pointer2)
+	// 値の参照 ポインタ変数に*をつけて出力すると値の参照ができる。
+	fmt.Println(*pointer2)
+
 }
