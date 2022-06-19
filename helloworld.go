@@ -118,6 +118,9 @@ func main() {
 	superPerson.Age = 88
 	superPerson.Name = "taro"
 	fmt.Println(superPerson.Age, superPerson.Name+"Hello ")
+
+	// 次回
+	// https://qiita.com/k-penguin-sato/items/a320072fa09502bde3e9
 }
 
 type Person struct {
