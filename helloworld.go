@@ -49,6 +49,16 @@ func main() {
 	arr3 := [...]int{1, 2, 3}
 	fmt.Println(arr3)
 
+	//　スライス
+	var slice []string
+	fmt.Println(slice)
+	slice2 := []string{"1", "2"}
+	fmt.Println(slice2)
+
+	// スライス（または配列）の中から値を取り出し、新たなスライスを作成
+	slice3 := slice2[0:2]
+	fmt.Println(slice3)
+
 	// for
 	for num := 0; num < 10; num++ {
 		text := fmt.Sprintf("for No.[%d]", num)
