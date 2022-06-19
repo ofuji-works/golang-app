@@ -4,12 +4,6 @@ import (
 	"fmt"
 )
 
-// 構造体
-type Person struct {
-	age  int
-	name string
-}
-
 func main() {
 	// 標準出力
 	fmt.Println("Hello world!")
@@ -89,29 +83,56 @@ func main() {
 	// 値の参照 ポインタ変数に*をつけて出力すると値の参照ができる。
 	fmt.Println(*pointer2)
 
-	person1 := &Person{18, "tarp"}
-	person2 := &Person{name: "tarp", age: 18}
+	person1 := &Person{Age: 18, Name: "struct"}
 	var person3 Person
-	person3.name = "tarp"
-	person3.age = 18
-	fmt.Println(person1.name, person1.age)
-	fmt.Println(person2)
+	person3.Name = "tarp"
+	person3.Age = 18
+	fmt.Println(person1.Name, person1.Age)
 	fmt.Println(person3)
 
 	mikne := NewPerson(18, "tarp")
 	fmt.Println("new person", mikne)
 
 	// structのポインタを通してのアクセス
-	person := Person{18, "tarp"}
+	person := Person{Age: 18, Name: "tarp"}
 	john := &person
 	fmt.Println("person", person)
 	fmt.Println("john", john)
-	john.age = 55
+	john.Age = 55
 	fmt.Println("person", person)
 	fmt.Println("john", john)
+	greeting := person.Greeting()
+	fmt.Println(greeting)
 
-	//構造体でのメソッドの定義
-	//https://qiita.com/k-penguin-sato/items/62dfe0f93f56e4bf9157
+	superPerson := new(SuperPerson)
+	superPerson.Age = 88
+	superPerson.Name = "taro"
+	fmt.Println(superPerson.Age, superPerson.Name+"Hello ")
+}
+
+type Person struct {
+	// 頭文字大文字のプロパティは外部からアクセスできる。
+	Age  int
+	Name string
+	// 頭文字大文字のプロパティは外部からアクセスできない。
+	private_name string
+}
+
+// 構造体の埋め込み
+type SuperPerson struct {
+	Person
+}
+
+// 関数を大文字から始めることで外部に公開される
+func (p Person) Greeting() string {
+	fmt.Println(p.Name + "Hello!!")
+	return p.Name + "Hello!!"
+}
+
+// 構造体でのメソッドの定義
+// レシーバ 引数に構造体を受け取る
+func (p Person) greeting() string {
+	return p.Name + "Hello!"
 }
 
 // Goにはコンストラクタが用意されていません。
@@ -119,7 +140,7 @@ func main() {
 func NewPerson(age int, name string) *Person {
 	// newは指定した型のポインタ型を生成する関数です。
 	person := new(Person)
-	person.age = age
-	person.name = name
+	person.Age = age
+	person.Name = name
 	return person
 }
